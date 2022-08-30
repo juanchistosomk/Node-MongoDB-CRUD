@@ -1,7 +1,11 @@
 const routeMascota = require('express').Router();
-const controllerMascota = require('./controllers/mascotas.controller.js');
+const controllerMascota = require('../../controllers/mascota.controller.js');
 
-routeMascota.get('/mascotas', controllerMascota.getAllMascotas);
-
+// Routes
+routeMascota.get('/', controllerMascota.getAllMascotas);
+routeMascota.get('/:id', controllerMascota.getOneMascota); 
+routeMascota.post('/', controllerMascota.createMascota);
+routeMascota.patch('/:id', controllerMascota.updateMascota);
+routeMascota.delete('/:id', controllerMascota.deleteMascota);
 
 module.exports = routeMascota;
