@@ -11,9 +11,10 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true})
                 .catch((error) => console.error(error));
 
 app.use(express.json()); // Middlewares
+app.use(express.urlencoded({ extended : true })); //
 
 //Routes
-
+app.use('/v1/', require('./routes/v1/mascotas.route.js'));
 ////////////////////////////////
 
 app.listen(PORT, () => console.log(`Servidor ejecutandose en puerto: ${PORT}`));
